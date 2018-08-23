@@ -1,20 +1,11 @@
 <div class="grid">
-  <div style="grid-column: 1 / 2; border: 1px solid #ccc;">
-    <div class="search-form">
-      <label for="search-text"></label>
-      <input type="text" id="search-text">
-      <button>検索</button>
-    </div>
-    <h1>記事一覧</h1>
-    <div class="post-list">
-      <ul v-for="post in qiitaPostList">
-        <li @click="handleClickPost(post.id, $event)">{{ post.title }}</li>
-      </ul>
-    </div>
-  </div>
-  <div style="grid-column: 2 / 3; border: 1px solid #ccc;">
-    <h1>記事内容</h1>
-    <div class="post-content" v-html="selectedContent.rendered_body">
-    </div>
-  </div>
+  <post-list
+    :qiitaPostList="qiitaPostList"
+    @send-selected-post-id="setSelectedPostId"
+  ></post-list>
+
+  <post-content
+    :selectedContent="selectedContent"
+  >
+  </post-content>
 </div>

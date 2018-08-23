@@ -1,7 +1,14 @@
 import api from '@/common/api'
+import PostList from './PostList'
+import PostContent from './PostContent'
 
 export default {
   name: 'QiitaReaderPage',
+
+  components: {
+    PostList,
+    PostContent
+  },
 
   created () {
     api.getQiitaPost()
@@ -15,27 +22,19 @@ export default {
 
   data () {
     return {
-      qiitaPostList: [],
+      qiitaPostList: [{}],
       selectedPostId: ''
     }
   },
 
   computed: {
     selectedContent () {
-      return this.qiitaPostList.find(post => {
-        return post.id === this.selectedPostId
-      })
+      return this.qiitaPostList.find(post => post.id === this.selectedPostId) || {}
     }
   },
 
   methods: {
-    /**
-     * 記事タイトルのクリック
-     *
-     * @param {string} id
-     * @param {object} e
-     */
-    handleClickPost (id, e) {
+    setSelectedPostId (id) {
       this.selectedPostId = id
     }
   }

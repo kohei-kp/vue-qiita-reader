@@ -21,7 +21,7 @@ export default {
    * @param {number} perPage
    * @return {Promise}
    */
-  getQiitaPost (page = 1, perPage = 1) {
+  getQiitaPost (page = 1, perPage = 20) {
     return api.get('items', {
       params: {
         page,

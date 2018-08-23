@@ -7,24 +7,14 @@
     </div>
     <h1>記事一覧</h1>
     <div class="post-list">
-      <ul>
-        <li>sample sample sample1</li>
-        <li>sample sample sample2</li>
-        <li>sample sample sample3</li>
-        <li>sample sample sample4</li>
-        <li>sample sample sample5</li>
-        <li>sample sample sample6</li>
-        <li>sample sample sample7</li>
-        <li>sample sample sample8</li>
-        <li>sample sample sample9</li>
-        <li>sample sample sample10</li>
+      <ul v-for="post in qiitaPostList">
+        <li @click="handleClickPost(post.id, $event)">{{ post.title }}</li>
       </ul>
     </div>
   </div>
   <div style="grid-column: 2 / 3; border: 1px solid #ccc;">
     <h1>記事内容</h1>
-    <div class="post-content">
-      sample sample sample
+    <div class="post-content" v-html="selectedContent.rendered_body">
     </div>
   </div>
 </div>

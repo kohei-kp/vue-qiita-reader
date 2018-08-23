@@ -1,6 +1,6 @@
 .grid {
   display: grid;
-  grid-template-columns: 500px 1fr;
+  grid-template-columns: 50% 1fr;
 }
 
 .grid div {
@@ -9,4 +9,9 @@
 
 .grid div:last-child {
   margin-left: 0;
+}
+
+.post-list ul li:hover {
+  background: rgba(0, 200, 255, .5);
+  cursor: pointer;
 }

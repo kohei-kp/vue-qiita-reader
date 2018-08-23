@@ -1,0 +1,12 @@
+.grid {
+  display: grid;
+  grid-template-columns: 500px 1fr;
+}
+
+.grid div {
+  margin: 5px;
+}
+
+.grid div:last-child {
+  margin-left: 0;
+}

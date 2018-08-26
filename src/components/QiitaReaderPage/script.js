@@ -11,13 +11,7 @@ export default {
   },
 
   created () {
-    api.getQiitaPost()
-      .then(res => {
-        this.qiitaPostList = res
-      })
-      .catch(err => {
-        alert(err)
-      })
+    this.setQiitaPostList()
   },
 
   data () {
@@ -36,6 +30,16 @@ export default {
   methods: {
     setSelectedPostId (id) {
       this.selectedPostId = id
+    },
+
+    setQiitaPostList () {
+      api.getQiitaPost()
+        .then(res => {
+          this.qiitaPostList = res
+        })
+        .catch(err => {
+          alert(err)
+        })
     }
   }
 }

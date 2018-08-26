@@ -5,9 +5,18 @@
     <button>検索</button>
   </div>
   <h1>記事一覧</h1>
+  <button @click="handleClickRefresh">更新</button>
   <div class="post-list">
-    <ul v-for="post in qiitaPostList">
-      <li @click="handleClickPost(post.id, $event)">{{ post.title }}</li>
+    <ul>
+      <li
+        v-for="post in qiitaPostList"
+        :class="{
+          highlight: selectedPostId === post.id
+        }"
+        @click="handleClickPost(post.id, $event)"
+      >
+        {{ post.title }}
+      </li>
     </ul>
   </div>
 </div>

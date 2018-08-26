@@ -1,7 +1,9 @@
 <div class="grid">
+  <div class="highlight">aaaa</div>
   <post-list
     :qiitaPostList="qiitaPostList"
     @send-selected-post-id="setSelectedPostId"
+    @refresh-post-list="setQiitaPostList"
   ></post-list>
 
   <post-content
